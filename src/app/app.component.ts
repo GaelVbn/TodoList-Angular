@@ -1,12 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { TodosComponent } from './components/todos/todos.component';
+import { TodoService } from './services/todo.service';
+import { MatInput, MatFormField, MatLabel } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    FormsModule,
+    TodosComponent,
+    MatButtonModule,
+    MatInput,
+    MatFormField,
+    MatLabel,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'todoapp';
+  todoSearch: string = '';
+
+  constructor(private todoService: TodoService) {}
+
+  get todos() {
+    return this.todoService.getTodos();
+  }
+
+  addTodo() {
+    this.todoService.addTodo(this.todoSearch);
+    this.todoSearch = '';
+  }
+
+  deleteTodo(id: number) {
+    this.todoService.deleteTodo(id);
+  }
 }

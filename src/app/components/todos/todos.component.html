@@ -1,0 +1,8 @@
+<div class="main">
+  <ul class="todo">
+    <li *ngFor="let item of todos">
+      {{ item.title }}
+      <button class="delete" (click)="deleteTodo(item.id)">Del</button>
+    </li>
+  </ul>
+</div>

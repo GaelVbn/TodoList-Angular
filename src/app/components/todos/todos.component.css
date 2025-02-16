@@ -1,0 +1,42 @@
+.main {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.todo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 6px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+.todo li:hover {
+  background: #f1f1f1;
+}
+
+.delete {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete:hover {
+  background: #d93636;
+}
